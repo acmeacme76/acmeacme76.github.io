@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我的开发者网站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -10,19 +11,48 @@
             margin: 0 auto; 
             padding: 20px; 
             line-height: 1.6; 
+            color: #333;
         }
-        h1 { color: #333; }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .app-section {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>开发者网站</h1>
-    <p>这是我的应用开发者网站</p>
+    <h1>Developer Portfolio</h1>
     
-    <h2>我的应用</h2>
-    <ul>
-        <li>应用名称</li>
-        <li>版本</li>
-        <li>平台</li>
-    </ul>
+    <p>Welcome to my developer website. Here you can find information about my mobile applications and development projects.</p>
+    
+    <div class="app-section">
+        <h2>My Applications</h2>
+        <ul>
+            <li>
+                <strong>iQuoteX</strong>
+                <p>Capture, Learn, Inspire,Wisdom.</p>
+            </li>
+            <li>
+                <strong>Platform Support</strong>
+                <p>iOS, Android, Flutter</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="app-section">
+        <h2>Contact</h2>
+        <p>Email: iquoteacme@gmail.com</p>
+        <p>GitHub: github.com/acmeacme76</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Haibo Ni. All rights reserved.</p>
+    </footer>
 </body>
 </html>
