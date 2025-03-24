@@ -1,0 +1,5 @@
+# Google AdMob
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Facebook Audience Network 
+facebook.com, SITE_ID, DIRECT, c3e20ebd3272a0cc
