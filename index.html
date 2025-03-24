@@ -4,55 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            line-height: 1.6; 
-            color: #333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 { 
-            color: #2c3e50; 
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.5em;
             border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
         }
+        .intro {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
         .app-section {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-radius: 5px;
+            background-color: #f1f4f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .app-section h2 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        .contact {
+            margin-top: 30px;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #2980b9;
+        }
+        footer {
+            text-align: center;
+            color: #7f8c8d;
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Developer Portfolio</h1>
-    
-    <p>Welcome to my developer website. Here you can find information about my mobile applications and development projects.</p>
-    
-    <div class="app-section">
-        <h2>My Applications</h2>
-        <ul>
-            <li>
-                <strong>iQuoteX</strong>
-                <p>Capture, Learn, Inspire,Wisdom.</p>
-            </li>
-            <li>
-                <strong>Platform Support</strong>
-                <p>iOS, Android, Flutter</p>
-            </li>
-        </ul>
-    </div>
+    <div class="container">
+        <h1>Developer Portfolio</h1>
+        
+        <p class="intro">Welcome to my developer website. Here you can find information about my mobile applications and development projects.</p>
+        
+        <div class="app-section">
+            <h2>My Applications</h2>
+            <ul>
+                <li>
+                    <strong>iQuoteX</strong>
+                    <p>Capture, Learn, Inspire, Wisdom.</p>
+                </li>
+                <li>
+                    <strong>Platform Support</strong>
+                    <p>iOS, Android, Flutter</p>
+                </li>
+            </ul>
+        </div>
 
-    <div class="app-section">
-        <h2>Contact</h2>
-        <p>Email: iquoteacme@gmail.com</p>
-        <p>GitHub: github.com/acmeacme76</p>
-    </div>
+        <div class="app-section contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:iquoteacme@gmail.com">iquoteacme@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/acmeacme76">github.com/acmeacme76</a></p>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Haibo Ni. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2024 Haibo Ni. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
