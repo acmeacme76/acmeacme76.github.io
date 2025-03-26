@@ -12,6 +12,13 @@
             --text-color: #2d2d2d;
             --shadow-color: rgba(0, 0, 0, 0.08);
             --accent-color: #ff6b6b;
+            /* 活泼的卡片配色 */
+            --card-color-1: #FF8C38; /* 橙色 */
+            --card-color-2: #FF6B6B; /* 粉色 */
+            --card-color-3: #A77BCA; /* 紫色 */
+            --card-color-4: #4AB8FF; /* 蓝色 */
+            --card-color-5: #FFD93D; /* 黄色 */
+            --card-color-6: #6BCB77; /* 绿色 */
         }
         * {
             margin: 0;
@@ -133,9 +140,9 @@
             align-items: flex-start;
         }
         .video-container {
-            width: 366px; /* 固定宽度 */
-            height: 793px; /* 固定高度 */
-            margin-left: 40px; /* 模拟 left: 40px */
+            width: 366px;
+            height: 793px;
+            margin-left: 40px;
             overflow: hidden;
             position: relative;
         }
@@ -148,36 +155,94 @@
         }
         .promo-container {
             flex: 1;
-            background: rgba(255, 255, 255, 0.95);
+            height: 793px; /* 与视频高度一致 */
+            overflow-y: auto; /* 启用手动滚动 */
+            position: relative;
+            scrollbar-width: thin; /* 自定义滚动条宽度（Firefox） */
+            scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* 自定义滚动条颜色（Firefox） */
+        }
+        /* 自定义滚动条样式（Chrome, Edge, Safari） */
+        .promo-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .promo-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .promo-container::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+        .promo-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .promo-scroller {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: auto-scroll 30s linear infinite; /* 自动滚动动画 */
+        }
+        .promo-container:hover .promo-scroller {
+            animation-play-state: paused; /* 鼠标悬停时暂停动画 */
+        }
+        @keyframes auto-scroll {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(calc(-100% + 793px)); /* 滚动到最后一个卡片 */
+            }
+        }
+        .promo-card {
+            background: #fff;
             border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            overflow-y: auto; /* 添加滚动条，确保内容完整显示 */
-            max-height: 793px; /* 与视频高度一致，避免过长 */
+            padding: 25px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
-        .promo-container h3 {
+        .promo-card:hover {
+            transform: translateY(-5px);
+        }
+        .promo-card h3 {
             font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        .promo-container h4 {
-            font-size: 18px;
-            margin: 20px 0 10px;
-            color: var(--text-color);
-        }
-        .promo-container p {
-            font-size: 16px;
-            color: #555;
+            font-weight: 700;
             margin-bottom: 15px;
         }
-        .promo-container ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            color: #555;
-        }
-        .promo-container ul li {
+        .promo-card h4 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 10px;
         }
+        .promo-card p {
+            font-size: 15px;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .promo-card ul {
+            list-style-type: disc;
+            margin: 10px auto;
+            text-align: left;
+            max-width: 90%;
+        }
+        .promo-card ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .promo-card ul ul {
+            list-style-type: circle;
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        /* 不同卡片的背景色 */
+        .promo-card:nth-child(1) { background: var(--card-color-1); }
+        .promo-card:nth-child(2) { background: var(--card-color-2); }
+        .promo-card:nth-child(3) { background: var(--card-color-3); }
+        .promo-card:nth-child(4) { background: var(--card-color-4); }
+        .promo-card:nth-child(5) { background: var(--card-color-5); }
+        .promo-card:nth-child(6) { background: var(--card-color-6); }
+        .promo-card:nth-child(7) { background: var(--card-color-1); }
+        .promo-card:nth-child(8) { background: var(--card-color-2); }
         .app-links {
             display: flex;
             gap: 25px;
@@ -211,13 +276,16 @@
             .video-container {
                 width: 100%;
                 max-width: 366px;
-                height: 793px; /* 保持固定高度 */
+                height: 793px;
                 margin-left: 0;
                 margin: 0 auto;
             }
             .promo-container {
-                max-height: none; /* 小屏幕时移除高度限制 */
-                overflow-y: visible; /* 内容自然展开 */
+                height: auto; /* 小屏幕时高度自适应 */
+                overflow-y: visible; /* 移除滚动 */
+            }
+            .promo-scroller {
+                animation: none; /* 小屏幕时禁用自动滚动 */
             }
         }
     </style>
@@ -270,32 +338,56 @@
                     </iframe>
                 </div>
                 <div class="promo-container">
-                    <h3>iQuoteX - A Quote Sharing and Management App</h3>
-                    <p>Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.</p>
-                    
-                    <h4>Core Features</h4>
-                    <p><strong>Vast Bilingual Treasury</strong></p>
-                    <p>With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</p>
-                    <p><strong>Exclusive Collection</strong></p>
-                    <p>Save your favorite quotes with one tap, building your personal wisdom vault—ready to share感動 at any time.</p>
-                    <p><strong>Daily Inspiration Push</strong></p>
-                    <p>Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</p>
-                    <p><strong>Global Interaction Circle</strong></p>
-                    <p>Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</p>
-                    <p><strong>Sleek and Seamless Design</strong></p>
-                    <p>A modern interface with intuitive controls, making inspiration management effortless.</p>
-                    <p><strong>Interactive Game Mode</strong></p>
-                    <p>Two bilingual educational games blending fun and learning—compete for global rankings:</p>
-                    <ul>
-                        <li><em>Gap Genius (Fill-in-the-Blank Master)</em><br>Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
-                        <li><em>Word Master (Vocabulary Wizard)</em><br>Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
-                    </ul>
+                    <div class="promo-scroller">
+                        <div class="promo-card">
+                            <h3>iQuoteX - A Quote Sharing and Management App</h3>
+                            <p>Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.</p>
+                        </div>
 
-                    <h4>Who It’s For</h4>
-                    <p>Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.</p>
+                        <div class="promo-card">
+                            <h4>Vast Bilingual Treasury</h4>
+                            <p>With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</p>
+                        </div>
 
-                    <h4>Conclusion</h4>
-                    <p>iQuoteX is more than a quote tool—it’s a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
+                        <div class="promo-card">
+                            <h4>Exclusive Collection</h4>
+                            <p>Save your favorite quotes with one tap, building your personal wisdom vault—ready to share感動 at any time.</p>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Daily Inspiration Push</h4>
+                            <p>Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</p>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Global Interaction Circle</h4>
+                            <p>Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</p>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Sleek and Seamless Design</h4>
+                            <p>A modern interface with intuitive controls, making inspiration management effortless.</p>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Interactive Game Mode</h4>
+                            <p>Two bilingual educational games blending fun and learning—compete for global rankings:</p>
+                            <ul>
+                                <li><em>Gap Genius (Fill-in-the-Blank Master)</em><br>Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
+                                <li><em>Word Master (Vocabulary Wizard)</em><br>Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
+                            </ul>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Who It’s For</h4>
+                            <p>Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.</p>
+                        </div>
+
+                        <div class="promo-card">
+                            <h4>Conclusion</h4>
+                            <p>iQuoteX is more than a quote tool—it’s a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
