@@ -130,15 +130,14 @@
             display: flex;
             gap: 35px;
             margin-bottom: 40px;
-            align-items: stretch;
+            align-items: flex-start; /* 改为 flex-start，避免拉伸 */
         }
         .video-container {
             position: relative;
-            padding-bottom: 202%; /* 820/406 ≈ 2.02，即 202% */
+            width: 406px; /* 固定宽度为 406px */
+            padding-bottom: 202%; /* 保持 820/406 ≈ 2.02 比例 */
             height: 0;
             overflow: hidden;
-            max-width: 406px;
-            flex: 1;
         }
         .video-container iframe {
             position: absolute;
@@ -194,7 +193,7 @@
         }
         .app-link:hover {
             background: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateYandom(-3px);
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
         }
         footer {
@@ -208,7 +207,9 @@
                 flex-direction: column;
             }
             .video-container {
-                max-width: 100%;
+                width: 100%; /* 小屏幕时宽度自适应 */
+                max-width: 406px; /* 限制最大宽度 */
+                margin: 0 auto; /* 居中 */
             }
         }
     </style>
