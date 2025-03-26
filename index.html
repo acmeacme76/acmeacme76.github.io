@@ -130,21 +130,21 @@
             display: flex;
             gap: 35px;
             margin-bottom: 40px;
-            align-items: flex-start; /* 改为 flex-start，避免拉伸 */
+            align-items: flex-start;
         }
         .video-container {
-            position: relative;
-            width: 406px; /* 固定宽度为 406px */
-            padding-bottom: 100%; 
-            height: 0;
+            width: 366px; /* 固定宽度 */
+            height: 793px; /* 固定高度 */
+            margin-left: 40px; /* 模拟 left: 40px */
             overflow: hidden;
+            position: relative;
         }
         .video-container iframe {
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
         }
         .promo-container {
             flex: 1;
@@ -152,6 +152,8 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px var(--shadow-color);
+            overflow-y: auto; /* 添加滚动条，确保内容完整显示 */
+            max-height: 793px; /* 与视频高度一致，避免过长 */
         }
         .promo-container h3 {
             font-size: 24px;
@@ -193,7 +195,7 @@
         }
         .app-link:hover {
             background: var(--accent-color);
-            transform: translateYandom(-3px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
         }
         footer {
@@ -207,9 +209,15 @@
                 flex-direction: column;
             }
             .video-container {
-                width: 100%; /* 小屏幕时宽度自适应 */
-                max-width: 406px; /* 限制最大宽度 */
-                margin: 0 auto; /* 居中 */
+                width: 100%;
+                max-width: 366px;
+                height: 793px; /* 保持固定高度 */
+                margin-left: 0;
+                margin: 0 auto;
+            }
+            .promo-container {
+                max-height: none; /* 小屏幕时移除高度限制 */
+                overflow-y: visible; /* 内容自然展开 */
             }
         }
     </style>
@@ -251,11 +259,11 @@
             <div class="video-section">
                 <div class="video-container">
                     <iframe 
+                        width="366" 
+                        height="793" 
                         src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
                         title="YouTube video player" 
-                        frameborder="0"
-                        height = "366"
-                        witdh = "893"
+                        frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen>
@@ -266,18 +274,21 @@
                     <p>Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.</p>
                     
                     <h4>Core Features</h4>
+                    <p><strong>Vast Bilingual Treasury</strong></p>
+                    <p>With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</p>
+                    <p><strong>Exclusive Collection</strong></p>
+                    <p>Save your favorite quotes with one tap, building your personal wisdom vault—ready to share感動 at any time.</p>
+                    <p><strong>Daily Inspiration Push</strong></p>
+                    <p>Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</p>
+                    <p><strong>Global Interaction Circle</strong></p>
+                    <p>Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</p>
+                    <p><strong>Sleek and Seamless Design</strong></p>
+                    <p>A modern interface with intuitive controls, making inspiration management effortless.</p>
+                    <p><strong>Interactive Game Mode</strong></p>
+                    <p>Two bilingual educational games blending fun and learning—compete for global rankings:</p>
                     <ul>
-                        <li><strong>Vast Bilingual Treasury:</strong> With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</li>
-                        <li><strong>Exclusive Collection:</strong> Save your favorite quotes with one tap, building your personal wisdom vault—ready to share感動 at any time.</li>
-                        <li><strong>Daily Inspiration Push:</strong> Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</li>
-                        <li><strong>Global Interaction Circle:</strong> Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</li>
-                        <li><strong>Sleek and Seamless Design:</strong> A modern interface with intuitive controls, making inspiration management effortless.</li>
-                        <li><strong>Interactive Game Mode:</strong> Two bilingual educational games blending fun and learning—compete for global rankings:
-                            <ul>
-                                <li><em>Gap Genius (Fill-in-the-Blank Master):</em> Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
-                                <li><em>Word Master (Vocabulary Wizard):</em> Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
-                            </ul>
-                        </li>
+                        <li><em>Gap Genius (Fill-in-the-Blank Master)</em><br>Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
+                        <li><em>Word Master (Vocabulary Wizard)</em><br>Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
                     </ul>
 
                     <h4>Who It’s For</h4>
