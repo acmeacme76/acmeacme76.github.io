@@ -1,134 +1,216 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acmeacme76 - GitHub Pages</title>
+    <title>Haibo Ni - App Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #007aff;
+            --background-color: #f8f9fd;
+            --text-color: #2d2d2d;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --accent-color: #ff6b6b;
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
         }
-
         body {
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(to bottom, var(--background-color), #ffffff);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
-
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px var(--shadow-color);
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #00d4ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        nav {
-            padding: 1rem;
-            text-align: center;
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
-
+        .logo:hover {
+            color: var(--accent-color);
+        }
         nav a {
-            color: #ffffff;
+            margin-right: 25px;
             text-decoration: none;
-            margin: 0 1rem;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
         nav a:hover {
-            color: #00d4ff;
+            color: var(--primary-color);
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            flex-grow: 1;
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 100px 0;
         }
-
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 1rem 0;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .hero-content {
+            flex: 1;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 340px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px var(--shadow-color);
+            transform: translateY(0);
             transition: transform 0.3s ease;
         }
-
-        .card:hover {
+        .hero-image img:hover {
+            transform: translateY(-10px);
+        }
+        h1 {
+            font-size: 56px;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+        .app-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 40px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+        .app-section:hover {
             transform: translateY(-5px);
         }
-
-        .card h2 {
-            color: #00d4ff;
-            margin-bottom: 1rem;
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 35px;
         }
-
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        .video-section {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+        .video-container {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        .app-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .app-link {
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+        }
+        .app-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
         footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 0;
             text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
+            box-shadow: 0 -4px 20px var(--shadow-color);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>acmeacme76.github.io</h1>
+        <div class="container header-content">
+            <div class="logo">Haibo Ni</div>
+            <nav>
+                <a href="https://www.linkedin.com/in/haibo-ni-55669820/">LinkedIn</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="#history">History</a>
-        <a href="#metadata">Metadata</a>
-        <a href="https://github.com/acmeacme76/acmeacme76.github.io">GitHub</a>
-    </nav>
-
     <div class="container">
-        <div class="card" id="history">
-            <h2>History</h2>
-            <p>176 lines (172 loc) · 5.3 KB</p>
-            <p>Repository: main · acmeacme76/acmeacme76.github.io · GitHub</p>
-        </div>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>iQuoteX App</h1>
+                <p class="subtitle">Capture, Learn, Inspire, Wisdom.</p>
+                <div class="app-links">
+                    <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank">App Store</a>
+                    <a href="#" class="app-link">Google Play</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/Landscape Banner Ad - 1200x720.png" alt="iQuoteX App Icon">
+            </div>
+        </section>
 
-        <div class="card" id="metadata">
-            <h2>File Metadata and Controls</h2>
-            <p>File: index.html</p>
-            <p>Size: 5.3 KB</p>
-            <p>Lines: 176 (172 loc)</p>
-        </div>
+        <section class="app-section">
+            <div class="app-header">
+                <img src="/iQuoteX_icon.png" alt="App Icon" class="app-icon">
+                <div>
+                    <h2>iQuoteX</h2>
+                    <p>Your daily companion for wisdom and inspiration</p>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IJn4OqwUTTo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer>
-        <p>© 2025 GitHub, Inc.</p>
+        <div class="container">
+            <p>© 2025 Haibo Ni. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
