@@ -140,11 +140,12 @@
             align-items: flex-start;
         }
         .video-container {
-            width: 366px;
-            height: 793px;
+            width: 366px; /* 固定宽度 */
+            height: 793px; /* 固定高度，保持 9:16 比例 */
             margin-left: 40px;
             overflow: hidden;
             position: relative;
+            background: #000; /* 背景色为黑色，防止黑边 */
         }
         .video-container iframe {
             width: 100%;
@@ -152,16 +153,16 @@
             position: absolute;
             top: 0;
             left: 0;
+            object-fit: cover; /* 强制填充容器，裁剪多余部分 */
         }
         .promo-container {
             flex: 1;
-            height: 793px; /* 与视频高度一致 */
-            overflow-y: auto; /* 启用手动滚动 */
+            height: 793px;
+            overflow-y: auto;
             position: relative;
-            scrollbar-width: thin; /* 自定义滚动条宽度（Firefox） */
-            scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* 自定义滚动条颜色（Firefox） */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
         }
-        /* 自定义滚动条样式（Chrome, Edge, Safari） */
         .promo-container::-webkit-scrollbar {
             width: 8px;
         }
@@ -179,17 +180,17 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            animation: auto-scroll 30s linear infinite; /* 自动滚动动画 */
+            animation: auto-scroll 30s linear infinite;
         }
         .promo-container:hover .promo-scroller {
-            animation-play-state: paused; /* 鼠标悬停时暂停动画 */
+            animation-play-state: paused;
         }
         @keyframes auto-scroll {
             0% {
                 transform: translateY(0);
             }
             100% {
-                transform: translateY(calc(-100% + 793px)); /* 滚动到最后一个卡片 */
+                transform: translateY(calc(-100% + 793px));
             }
         }
         .promo-card {
@@ -234,7 +235,6 @@
             margin-left: 20px;
             margin-top: 8px;
         }
-        /* 不同卡片的背景色 */
         .promo-card:nth-child(1) { background: var(--card-color-1); }
         .promo-card:nth-child(2) { background: var(--card-color-2); }
         .promo-card:nth-child(3) { background: var(--card-color-3); }
@@ -276,16 +276,16 @@
             .video-container {
                 width: 100%;
                 max-width: 366px;
-                height: 793px;
+                height: calc(100vw * (793 / 366)); /* 保持 9:16 比例 */
                 margin-left: 0;
                 margin: 0 auto;
             }
             .promo-container {
-                height: auto; /* 小屏幕时高度自适应 */
-                overflow-y: visible; /* 移除滚动 */
+                height: auto;
+                overflow-y: visible;
             }
             .promo-scroller {
-                animation: none; /* 小屏幕时禁用自动滚动 */
+                animation: none;
             }
         }
     </style>
