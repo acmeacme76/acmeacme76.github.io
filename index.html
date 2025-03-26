@@ -130,20 +130,52 @@
             display: flex;
             gap: 35px;
             margin-bottom: 40px;
+            align-items: stretch;
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 比例 */
+            padding-bottom: 202%; /* 820/406 ≈ 2.02，即 202% */
             height: 0;
             overflow: hidden;
+            max-width: 406px;
+            flex: 1;
         }
-        
         .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+        }
+        .promo-container {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        .promo-container h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .promo-container h4 {
+            font-size: 18px;
+            margin: 20px 0 10px;
+            color: var(--text-color);
+        }
+        .promo-container p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .promo-container ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+        .promo-container ul li {
+            margin-bottom: 10px;
         }
         .app-links {
             display: flex;
@@ -170,6 +202,14 @@
             padding: 25px 0;
             text-align: center;
             box-shadow: 0 -4px 20px var(--shadow-color);
+        }
+        @media (max-width: 768px) {
+            .video-section {
+                flex-direction: column;
+            }
+            .video-container {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -209,16 +249,39 @@
 
             <div class="video-section">
                 <div class="video-container">
-                      <iframe 
-                            width="406" 
-                            height="820" 
-                            src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                        </iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="promo-container">
+                    <h3>iQuoteX - A Quote Sharing and Management App</h3>
+                    <p>Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.</p>
+                    
+                    <h4>Core Features</h4>
+                    <ul>
+                        <li><strong>Vast Bilingual Treasury:</strong> With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</li>
+                        <li><strong>Exclusive Collection:</strong> Save your favorite quotes with one tap, building your personal wisdom vault—ready to share感動 at any time.</li>
+                        <li><strong>Daily Inspiration Push:</strong> Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</li>
+                        <li><strong>Global Interaction Circle:</strong> Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</li>
+                        <li><strong>Sleek and Seamless Design:</strong> A modern interface with intuitive controls, making inspiration management effortless.</li>
+                        <li><strong>Interactive Game Mode:</strong> Two bilingual educational games blending fun and learning—compete for global rankings:
+                            <ul>
+                                <li><em>Gap Genius (Fill-in-the-Blank Master):</em> Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
+                                <li><em>Word Master (Vocabulary Wizard):</em> Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Who It’s For</h4>
+                    <p>Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.</p>
+
+                    <h4>Conclusion</h4>
+                    <p>iQuoteX is more than a quote tool—it’s a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
                 </div>
             </div>
         </section>
