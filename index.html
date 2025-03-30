@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title will be set by JavaScript -->
     <title>Haibo Ni - App Developer</title> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -13,13 +12,12 @@
             --text-color: #2d2d2d;
             --shadow-color: rgba(0, 0, 0, 0.08);
             --accent-color: #ff6b6b;
-            /* 活泼的卡片配色 */
-            --card-color-1: #FF8C38; /* 橙色 */
-            --card-color-2: #FF6B6B; /* 粉色 */
-            --card-color-3: #A77BCA; /* 紫色 */
-            --card-color-4: #4AB8FF; /* 蓝色 */
-            --card-color-5: #FFD93D; /* 黄色 */
-            --card-color-6: #6BCB77; /* 绿色 */
+            --card-color-1: #FF8C38;
+            --card-color-2: #FF6B6B;
+            --card-color-3: #A77BCA;
+            --card-color-4: #4AB8FF;
+            --card-color-5: #FFD93D;
+            --card-color-6: #6BCB77;
         }
         * {
             margin: 0;
@@ -63,16 +61,16 @@
             color: var(--accent-color);
         }
         nav {
-            display: flex; /* Use flexbox for nav items */
+            display: flex;
             align-items: center;
         }
         nav a, .lang-switch a {
-            margin-left: 25px; /* Changed from margin-right for better layout with lang switch */
+            margin-left: 25px;
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
-            cursor: pointer; /* Make lang switch links look clickable */
+            cursor: pointer;
         }
         nav a:hover, .lang-switch a:hover {
             color: var(--primary-color);
@@ -84,11 +82,10 @@
             padding-bottom: 2px;
         }
         .lang-separator {
-             margin-left: 8px;
-             margin-right: 8px;
-             color: #ccc;
+            margin-left: 8px;
+            margin-right: 8px;
+            color: #ccc;
         }
-
         .hero {
             display: flex;
             align-items: center;
@@ -151,10 +148,9 @@
             border-radius: 25px;
             box-shadow: 0 5px 15px var(--shadow-color);
         }
-        /* Add ID for app subtitle */
         #app-subtitle { 
-            margin: 0; /* Reset margin if needed */
-         }
+            margin: 0;
+        }
         .video-section {
             display: flex;
             gap: 35px;
@@ -176,35 +172,6 @@
             top: 0;
             left: 0;
             object-fit: cover;
-        }
-        .alternative-video-content {
-            width: 366px;
-            height: 793px;
-            margin-left: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fd;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        
-        .video-placeholder {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .app-preview-img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            margin-bottom: 20px;
-        }
-        
-        #video-unavailable-message {
-            color: #666;
-            font-size: 14px;
         }
         .promo-container {
             flex: 1;
@@ -237,12 +204,8 @@
             animation-play-state: paused;
         }
         @keyframes auto-scroll {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(calc(-100% + 793px));
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(calc(-100% + 793px)); }
         }
         .promo-card {
             background: #fff;
@@ -293,10 +256,9 @@
         .promo-card:nth-child(4) { background: var(--card-color-4); }
         .promo-card:nth-child(5) { background: var(--card-color-5); }
         .promo-card:nth-child(6) { background: var(--card-color-6); }
-        .promo-card:nth-child(7) { background: var(--card-color-1); } /* Re-using colors */
+        .promo-card:nth-child(7) { background: var(--card-color-1); }
         .promo-card:nth-child(8) { background: var(--card-color-2); }
         .promo-card:nth-child(9) { background: var(--card-color-3); }
-
         .app-links {
             display: flex;
             gap: 25px;
@@ -323,21 +285,12 @@
             text-align: center;
             box-shadow: 0 -4px 20px var(--shadow-color);
         }
-        #footer-text { /* Add ID for footer text */
+        #footer-text {
             margin: 0;
         }
-
-        /* Responsive Design Enhancements */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            .hero {
-                flex-direction: column;
-                gap: 30px;
-                padding: 40px 20px;
-                text-align: center;
-            }
+            .container { padding: 0 15px; }
+            .hero { flex-direction: column; gap: 30px; padding: 40px 20px; text-align: center; }
             .hero-content { order: 2; }
             .hero-image { order: 1; }
             .hero-image img { max-width: 80%; height: auto; }
@@ -348,23 +301,14 @@
             .app-section { padding: 25px 15px; border-radius: 15px; }
             .app-header { flex-direction: column; text-align: center; gap: 15px; }
             .video-section { flex-direction: column; gap: 20px; }
-            .video-container, .alternative-video-content { 
-                width: 100%; 
-                height: auto; 
-                aspect-ratio: 9/16; 
-                margin-left: 0; 
-            }
+            .video-container { width: 100%; height: auto; aspect-ratio: 9/16; margin-left: 0; }
             .promo-container { height: auto; max-height: 500px; width: 100%; }
             .promo-scroller { animation: none; }
-            .header-content { padding: 0 15px; flex-wrap: wrap; } /* Allow wrap for lang switch */
-            .logo { font-size: 24px; margin-bottom: 5px; /* Add space below logo on small screens */ } 
-            nav {
-                width: 100%; /* Make nav take full width */
-                justify-content: flex-end; /* Align items to the right */
-                margin-top: 5px; /* Add some space above nav on small screens */
-            }
+            .header-content { padding: 0 15px; flex-wrap: wrap; }
+            .logo { font-size: 24px; margin-bottom: 5px; }
+            nav { width: 100%; justify-content: flex-end; margin-top: 5px; }
             nav a, .lang-switch a { margin-left: 15px; font-size: 14px; }
-            .lang-separator { margin-left: 5px; margin-right: 5px;}
+            .lang-separator { margin-left: 5px; margin-right: 5px; }
         }
         @media (max-width: 480px) {
             .hero { padding: 30px 15px; }
@@ -376,14 +320,14 @@
             .promo-card h3 { font-size: 20px; }
             .promo-card h4 { font-size: 16px; }
             .promo-card p, .promo-card ul li { font-size: 13px; }
-             nav { justify-content: center; } /* Center nav items on very small screens */
+            nav { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">Haibo Ni - App Developer </div>
+            <div class="logo">Haibo Ni - App Developer</div>
             <nav>
                 <a href="https://www.linkedin.com/in/haibo-ni-55669820/" target="_blank" id="nav-linkedin">LinkedIn</a>
                 <div class="lang-switch">
@@ -406,7 +350,6 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Keep existing image, alt text might not need translation or can be simple -->
                 <img src="/Landscape Banner Ad - 1200x720.png" alt="iQuoteX App Banner">
             </div>
         </section>
@@ -435,37 +378,30 @@
                 </div>
                 <div class="promo-container">
                     <div class="promo-scroller">
-                        <!-- Promo Card 1 -->
                         <div class="promo-card">
                             <h3 id="promo1-title">iQuoteX - A Quote Sharing and Management App</h3>
                             <p id="promo1-text">Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.</p>
                         </div>
-                        <!-- Promo Card 2 -->
                         <div class="promo-card">
                             <h4 id="promo2-title">Vast Bilingual Treasury</h4>
                             <p id="promo2-text">With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.</p>
                         </div>
-                        <!-- Promo Card 3 -->
                         <div class="promo-card">
                             <h4 id="promo3-title">Exclusive Collection</h4>
                             <p id="promo3-text">Save your favorite quotes with one tap, building your personal wisdom vault—ready to share inspiration at any time.</p>
                         </div>
-                        <!-- Promo Card 4 -->
                         <div class="promo-card">
                             <h4 id="promo4-title">Daily Inspiration Push</h4>
                             <p id="promo4-text">Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.</p>
                         </div>
-                        <!-- Promo Card 5 -->
                         <div class="promo-card">
                             <h4 id="promo5-title">Global Interaction Circle</h4>
                             <p id="promo5-text">Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.</p>
                         </div>
-                        <!-- Promo Card 6 -->
                         <div class="promo-card">
                             <h4 id="promo6-title">Sleek and Seamless Design</h4>
                             <p id="promo6-text">A modern interface with intuitive controls, making inspiration management effortless.</p>
                         </div>
-                        <!-- Promo Card 7 -->
                         <div class="promo-card">
                             <h4 id="promo7-title">Interactive Game Mode</h4>
                             <p id="promo7-text1">Two bilingual educational games blending fun and learning—compete for global rankings:</p>
@@ -476,12 +412,10 @@
                                 <li id="promo7-game2-desc">Three levels: Beginner (e.g., "cat," "一日三餐"), Intermediate (e.g., "persuade," "坚持不懈"), Advanced (e.g., "ephemeral," "罄竹难书"). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
                             </ul>
                         </div>
-                        <!-- Promo Card 8 -->
                         <div class="promo-card">
                             <h4 id="promo8-title">Who It's For</h4>
                             <p id="promo8-text">Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.</p>
                         </div>
-                        <!-- Promo Card 9 -->
                         <div class="promo-card">
                             <h4 id="promo9-title">Conclusion</h4>
                             <p id="promo9-text">iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
@@ -498,92 +432,198 @@
         </div>
     </footer>
 
-<script>
-    // --- Translations Object ---
-    const translations = {
-        en: {
-            pageTitle: "Haibo Ni - App Developer",
-            navLinkedin: "LinkedIn",
-            heroTitle: "iQuoteX App",
-            heroSubtitle: "Capture, Learn, Inspire, Wisdom.",
-            linkAppstore: "App Store",
-            linkGoogleplay: "Google Play", // Assuming coming soon
-            appName: "iQuoteX",
-            appSubtitle: "Your daily companion for wisdom and inspiration",
-            promo1Title: "iQuoteX - A Quote Sharing and Management App",
-            promo1Text: "Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.",
-            promo2Title: "Vast Bilingual Treasury",
-            promo2Text: "With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.",
-            promo3Title: "Exclusive Collection",
-            promo3Text: "Save your favorite quotes with one tap, building your personal wisdom vault—ready to share inspiration at any time.",
-            promo4Title: "Daily Inspiration Push",
-            promo4Text: "Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.",
-            promo5Title: "Global Interaction Circle",
-            promo5Text: "Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.",
-            promo6Title: "Sleek and Seamless Design",
-            promo6Text: "A modern interface with intuitive controls, making inspiration management effortless.",
-            promo7Title: "Interactive Game Mode",
-            promo7Text1: "Two bilingual educational games blending fun and learning—compete for global rankings:",
-            promo7Game1Title: "<em>Gap Genius (Fill-in-the-Blank Master)</em>",
-            promo7Game1Desc: "Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!",
-            promo7Game2Title: "<em>Word Master (Vocabulary Wizard)</em>",
-            promo7Game2Desc: 'Three levels: Beginner (e.g., "cat," "一日三餐"), Intermediate (e.g., "persuade," "坚持不懈"), Advanced (e.g., "ephemeral," "罄竹难书"). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!',
-            promo8Title: "Who It's For",
-            promo8Text: "Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.",
-            promo9Title: "Conclusion",
-            promo9Text: "iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!",
-            videoUnavailableMessage: "Video preview unavailable. Please see app screenshots instead.",
-            footerText: "© 2025 Haibo Ni. All rights reserved." // Copyright generally stays same
-        },
-        zh: {
-            pageTitle: "倪海波 - App开发者",
-            navLinkedin: "领英", // Or keep as LinkedIn
-            heroTitle: "iQuoteX 应用",
-            heroSubtitle: "品悟、学习、启发、智慧。",
-            linkAppstore: "App Store",
-            linkGoogleplay: "Google Play", // Or "谷歌商店" - keep consistent
-            appName: "iQuoteX",
-            appSubtitle: "您的日常智慧与灵感伴侣",
-            promo1Title: "iQuoteX - 语录分享与管理应用",
-            promo1Text: "您是否曾为一句触动心灵的语录而无处安放？iQuoteX专为文字爱好者打造，帮您捕捉、收藏、分享每一个灵感瞬间。从励志名言到文学经典，再到生活感悟，iQuoteX不仅能整理您的珍藏语录，更通过符合CEFR标准的趣味游戏，让学习充满乐趣。",
-            promo2Title: "海量双语宝库",
-            promo2Text: "超140万条中英双语录，关键词一搜即得，灵感瞬间点燃。融合AI智能英汉互译，语言切换无缝对接，理解无障碍。更有AI语音朗读功能，让每条语录都成为声情并茂的诵读，加深您与文字的情感连接。",
-            promo3Title: "专属收藏夹",
-            promo3Text: "一键收藏心动语录，构建个人智慧库，随时分享灵感火花。",
-            promo4Title: "每日灵感推送",
-            promo4Text: "开启应用即享随机语录，每日探索未知的智慧宝藏。",
-            promo5Title: "全球互动圈",
-            promo5Text: "点赞、收藏、分享语录，解锁个性化推荐，与全球百万用户共建灵感社区。",
-            promo6Title: "简洁流畅设计",
-            promo6Text: "现代感界面，操作直观便捷，灵感管理轻松自如。",
-            promo7Title: "互动游戏模式",
-            promo7Text1: "两大双语益智游戏，寓教于乐，争夺全球排名：",
-            promo7Game1Title: "<em>填空高手 (Gap Genius)</em>",
-            promo7Game1Desc: "随机五句语录，限时挑战填补缺失单词，中英双语并行。在游戏中记忆语录，锻炼表达，冲击全球排行榜！",
-            promo7Game2Title: "<em>词汇大师 (Word Master)</em>",
-            promo7Game2Desc: '三个级别：初级（如"猫"、"一日三餐"），中级（如"persuade"、"坚持不懈"），高级（如"ephemeral"、"罄竹难书"）。对标CEFR及HSK标准，快速找词，冲刺词汇大师排行榜！',
-            promo8Title: "适用人群",
-            promo8Text: "无论您是学生、作家、演讲者，还是任何珍视文字、渴望提升语言能力的人。汲取智慧，锤炼词汇，让iQuoteX成为您的得力助手。",
-            promo9Title: "结语",
-            promo9Text: "iQuoteX，不只是语录工具，更是灵感迸发、学习成长的舞台。立即下载订阅，享受无广告体验，与全球玩家竞技，点亮您的智慧火花！",
-            videoUnavailableMessage: "视频预览暂不可用，请查看应用截图。",
-            footerText: "© 2025 倪海波. 版权所有."
+    <script>
+        // --- Translations Object ---
+        const translations = {
+            en: {
+                pageTitle: "Haibo Ni - App Developer",
+                navLinkedin: "LinkedIn",
+                heroTitle: "iQuoteX App",
+                heroSubtitle: "Capture, Learn, Inspire, Wisdom.",
+                linkAppstore: "App Store",
+                linkGoogleplay: "Google Play",
+                appName: "iQuoteX",
+                appSubtitle: "Your daily companion for wisdom and inspiration",
+                promo1Title: "iQuoteX - A Quote Sharing and Management App",
+                promo1Text: "Have you ever been moved by a quote but had nowhere to keep it? iQuoteX is tailor-made for word lovers, helping you capture, collect, and share every moment of inspiration. From motivational sayings to literary classics and everyday wisdom, iQuoteX not only organizes your treasured quotes but also makes learning fun with CEFR-standard games.",
+                promo2Title: "Vast Bilingual Treasury",
+                promo2Text: "With over 1.4 million English and Chinese quotes, a single keyword search instantly sparks inspiration. Enhanced with AI-powered English-Chinese translation for seamless switching and barrier-free understanding, plus AI voice narration that turns every quote into a captivating recitation, deepening your connection to the words.",
+                promo3Title: "Exclusive Collection",
+                promo3Text: "Save your favorite quotes with one tap, building your personal wisdom vault—ready to share inspiration at any time.",
+                promo4Title: "Daily Inspiration Push",
+                promo4Text: "Open the app to enjoy a random quote, uncovering hidden gems of wisdom every day.",
+                promo5Title: "Global Interaction Circle",
+                promo5Text: "Like, save, and share quotes to unlock personalized recommendations, joining millions worldwide in a thriving inspiration community.",
+                promo6Title: "Sleek and Seamless Design",
+                promo6Text: "A modern interface with intuitive controls, making inspiration management effortless.",
+                promo7Title: "Interactive Game Mode",
+                promo7Text1: "Two bilingual educational games blending fun and learning—compete for global rankings:",
+                promo7Game1Title: "<em>Gap Genius (Fill-in-the-Blank Master)</em>",
+                promo7Game1Desc: "Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!",
+                promo7Game2Title: "<em>Word Master (Vocabulary Wizard)</em>",
+                promo7Game2Desc: 'Three levels: Beginner (e.g., "cat," "一日三餐"), Intermediate (e.g., "persuade," "坚持不懈"), Advanced (e.g., "ephemeral," "罄竹难书"). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!',
+                promo8Title: "Who It's For",
+                promo8Text: "Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.",
+                promo9Title: "Conclusion",
+                promo9Text: "iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!",
+                footerText: "© 2025 Haibo Ni. All rights reserved.",
+                youtubeNotice: "Video content is unavailable in your region."
+            },
+            zh: {
+                pageTitle: "倪海波 - App开发者",
+                navLinkedin: "领英",
+                heroTitle: "iQuoteX 应用",
+                heroSubtitle: "品悟、学习、启发、智慧。",
+                linkAppstore: "App Store",
+                linkGoogleplay: "Google Play",
+                appName: "iQuoteX",
+                appSubtitle: "您的日常智慧与灵感伴侣",
+                promo1Title: "iQuoteX - 语录分享与管理应用",
+                promo1Text: "您是否曾为一句触动心灵的语录而无处安放？iQuoteX专为文字爱好者打造，帮您捕捉、收藏、分享每一个灵感瞬间。从励志名言到文学经典，再到生活感悟，iQuoteX不仅能整理您的珍藏语录，更通过符合CEFR标准的趣味游戏，让学习充满乐趣。",
+                promo2Title: "海量双语宝库",
+                promo2Text: "超140万条中英双语录，关键词一搜即得，灵感瞬间点燃。融合AI智能英汉互译，语言切换无缝对接，理解无障碍。更有AI语音朗读功能，让每条语录都成为声情并茂的诵读，加深您与文字的情感连接。",
+                promo3Title: "专属收藏夹",
+                promo3Text: "一键收藏心动语录，构建个人智慧库，随时分享灵感火花。",
+                promo4Title: "每日灵感推送",
+                promo4Text: "开启应用即享随机语录，每日探索未知的智慧宝藏。",
+                promo5Title: "全球互动圈",
+                promo5Text: "点赞、收藏、分享语录，解锁个性化推荐，与全球百万用户共建灵感社区。",
+                promo6Title: "简洁流畅设计",
+                promo6Text: "现代感界面，操作直观便捷，灵感管理轻松自如。",
+                promo7Title: "互动游戏模式",
+                promo7Text1: "两大双语益智游戏，寓教于乐，争夺全球排名：",
+                promo7Game1Title: "<em>填空高手 (Gap Genius)</em>",
+                promo7Game1Desc: "随机五句语录，限时挑战填补缺失单词，中英双语并行。在游戏中记忆语录，锻炼表达，冲击全球排行榜！",
+                promo7Game2Title: "<em>词汇大师 (Word Master)</em>",
+                promo7Game2Desc: '三个级别：初级（如“猫”、“一日三餐”），中级（如“persuade”、“坚持不懈”），高级（如“ephemeral”、“罄竹难书”）。对标CEFR及HSK标准，快速找词，冲刺词汇大师排行榜！',
+                promo8Title: "适用人群",
+                promo8Text: "无论您是学生、作家、演讲者，还是任何珍视文字、渴望提升语言能力的人。汲取智慧，锤炼词汇，让iQuoteX成为您的得力助手。",
+                promo9Title: "结语",
+                promo9Text: "iQuoteX，不只是语录工具，更是灵感迸发、学习成长的舞台。立即下载订阅，享受无广告体验，与全球玩家竞技，点亮您的智慧火花！",
+                footerText: "© 2025 倪海波. 版权所有.",
+                youtubeNotice: "视频内容在您所在地区无法访问。"
+            }
+        };
+
+        // --- Language Setting Function ---
+        function setLanguage(lang) {
+            if (!translations[lang]) {
+                console.error("Language not supported:", lang);
+                return;
+            }
+
+            const langData = translations[lang];
+            document.documentElement.lang = lang;
+
+            for (const key in langData) {
+                const element = document.getElementById(key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`));
+                if (element) {
+                    if (key === 'promo7Game1Title' || key === 'promo7Game2Title') {
+                        element.innerHTML = langData[key];
+                    } else {
+                        element.textContent = langData[key];
+                    }
+                } else if (key === 'pageTitle') {
+                    document.title = langData[key];
+                }
+            }
+
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+
+            try {
+                localStorage.setItem('preferredLanguage', lang);
+            } catch (e) {
+                console.warn("Could not save language preference to localStorage:", e);
+            }
         }
-    };
 
-    // --- Language Setting Function ---
-    function setLanguage(lang) {
-        if (!translations[lang]) {
-            console.error("Language not supported:", lang);
-            return;
+        // --- YouTube Accessibility Check ---
+        function checkYouTubeAccessibility(callback) {
+            const testUrl = 'https://www.youtube.com/favicon.ico';
+            const img = new Image();
+            let isAccessible = false;
+
+            const timeout = setTimeout(() => {
+                img.src = '';
+                callback(false);
+            }, 5000);
+
+            img.onload = () => {
+                clearTimeout(timeout);
+                isAccessible = true;
+                callback(true);
+            };
+
+            img.onerror = () => {
+                clearTimeout(timeout);
+                callback(false);
+            };
+
+            img.src = testUrl + '?t=' + new Date().getTime();
         }
 
-        const langData = translations[lang];
-        document.documentElement.lang = lang; // Set HTML lang attribute
+        // --- Adjust Layout Based on YouTube Accessibility ---
+        function adjustLayout(isYouTubeAccessible) {
+            const videoContainer = document.querySelector('.video-container');
+            const promoContainer = document.querySelector('.promo-container');
+            const videoSection = document.querySelector('.video-section');
 
-        // Update text content based on IDs
-        for (const key in langData) {
-            const element = document.getElementById(key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)); // Convert camelCase key to kebab-case ID
-            if (element) {
-                // Use innerHTML for elements containing HTML tags (like <em> in game titles)
-                if (key === 'promo7Game1Title' ||
+            if (!isYouTubeAccessible) {
+                videoContainer.style.display = 'none';
+                promoContainer.style.width = '100%';
+                promoContainer.style.height = 'auto';
+                promoContainer.style.maxHeight = '793px';
+                videoSection.style.gap = '0';
+
+                const notice = document.createElement('p');
+                notice.textContent = translations[document.documentElement.lang || 'en'].youtubeNotice;
+                notice.style.color = '#666';
+                notice.style.textAlign = 'center';
+                notice.style.marginBottom = '20px';
+                videoSection.insertBefore(notice, promoContainer);
+            }
+        }
+
+        // --- Event Listeners ---
+        document.getElementById('lang-en').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('en');
+        });
+
+        document.getElementById('lang-zh').addEventListener('click', (e) => {
+            e.preventDefault();
+            setLanguage('zh');
+        });
+
+        // --- Initial Language Setup ---
+        document.addEventListener('DOMContentLoaded', () => {
+            let preferredLang = 'en';
+
+            try {
+                const storedLang = localStorage.getItem('preferredLanguage');
+                if (storedLang && translations[storedLang]) {
+                    preferredLang = storedLang;
+                } else {
+                    const browserLang = navigator.language || navigator.userLanguage;
+                    if (browserLang.startsWith('zh')) {
+                        preferredLang = 'zh';
+                    }
+                }
+            } catch (e) {
+                console.warn("Could not access localStorage:", e);
+                const browserLang = navigator.language || navigator.userLanguage;
+                if (browserLang.startsWith('zh')) {
+                    preferredLang = 'zh';
+                }
+            }
+
+            setLanguage(preferredLang);
+
+            checkYouTubeAccessibility((isAccessible) => {
+                adjustLayout(isAccessible);
+            });
+        });
+    </script>
+</body>
+</html>
