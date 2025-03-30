@@ -177,6 +177,35 @@
             left: 0;
             object-fit: cover;
         }
+        .alternative-video-content {
+            width: 366px;
+            height: 793px;
+            margin-left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .video-placeholder {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .app-preview-img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            margin-bottom: 20px;
+        }
+        
+        #video-unavailable-message {
+            color: #666;
+            font-size: 14px;
+        }
         .promo-container {
             flex: 1;
             height: 793px;
@@ -319,7 +348,12 @@
             .app-section { padding: 25px 15px; border-radius: 15px; }
             .app-header { flex-direction: column; text-align: center; gap: 15px; }
             .video-section { flex-direction: column; gap: 20px; }
-            .video-container { width: 100%; height: auto; aspect-ratio: 9/16; margin-left: 0; }
+            .video-container, .alternative-video-content { 
+                width: 100%; 
+                height: auto; 
+                aspect-ratio: 9/16; 
+                margin-left: 0; 
+            }
             .promo-container { height: auto; max-height: 500px; width: 100%; }
             .promo-scroller { animation: none; }
             .header-content { padding: 0 15px; flex-wrap: wrap; } /* Allow wrap for lang switch */
@@ -498,6 +532,7 @@
             promo8Text: "Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.",
             promo9Title: "Conclusion",
             promo9Text: "iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!",
+            videoUnavailableMessage: "Video preview unavailable. Please see app screenshots instead.",
             footerText: "© 2025 Haibo Ni. All rights reserved." // Copyright generally stays same
         },
         zh: {
@@ -526,11 +561,12 @@
             promo7Game1Title: "<em>填空高手 (Gap Genius)</em>",
             promo7Game1Desc: "随机五句语录，限时挑战填补缺失单词，中英双语并行。在游戏中记忆语录，锻炼表达，冲击全球排行榜！",
             promo7Game2Title: "<em>词汇大师 (Word Master)</em>",
-            promo7Game2Desc: '三个级别：初级（如“猫”、“一日三餐”），中级（如“persuade”、“坚持不懈”），高级（如“ephemeral”、“罄竹难书”）。对标CEFR及HSK标准，快速找词，冲刺词汇大师排行榜！',
+            promo7Game2Desc: '三个级别：初级（如"猫"、"一日三餐"），中级（如"persuade"、"坚持不懈"），高级（如"ephemeral"、"罄竹难书"）。对标CEFR及HSK标准，快速找词，冲刺词汇大师排行榜！',
             promo8Title: "适用人群",
             promo8Text: "无论您是学生、作家、演讲者，还是任何珍视文字、渴望提升语言能力的人。汲取智慧，锤炼词汇，让iQuoteX成为您的得力助手。",
             promo9Title: "结语",
             promo9Text: "iQuoteX，不只是语录工具，更是灵感迸发、学习成长的舞台。立即下载订阅，享受无广告体验，与全球玩家竞技，点亮您的智慧火花！",
+            videoUnavailableMessage: "视频预览暂不可用，请查看应用截图。",
             footerText: "© 2025 倪海波. 版权所有."
         }
     };
@@ -550,74 +586,4 @@
             const element = document.getElementById(key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`)); // Convert camelCase key to kebab-case ID
             if (element) {
                 // Use innerHTML for elements containing HTML tags (like <em> in game titles)
-                if (key === 'promo7Game1Title' || key === 'promo7Game2Title') {
-                    element.innerHTML = langData[key];
-                } else {
-                    element.textContent = langData[key];
-                }
-            } else if (key === 'pageTitle') {
-                document.title = langData[key]; // Update page title
-            }
-             else {
-                 // Handle potential mismatches or elements without IDs if needed
-                 // console.warn(`Element not found for key: ${key}`);
-             }
-        }
-
-        // Update active class on language switcher
-        document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-        document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
-
-        // Store preference in localStorage
-        try {
-            localStorage.setItem('preferredLanguage', lang);
-        } catch (e) {
-            console.warn("Could not save language preference to localStorage:", e);
-        }
-    }
-
-    // --- Event Listeners ---
-    document.getElementById('lang-en').addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent page reload
-        setLanguage('en');
-    });
-
-    document.getElementById('lang-zh').addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent page reload
-        setLanguage('zh');
-    });
-
-    // --- Initial Language Setup ---
-    document.addEventListener('DOMContentLoaded', () => {
-        let preferredLang = 'en'; // Default to English
-
-        // 1. Check localStorage
-        try {
-            const storedLang = localStorage.getItem('preferredLanguage');
-            if (storedLang && translations[storedLang]) {
-                preferredLang = storedLang;
-            } else {
-                // 2. Check browser language if no stored preference
-                const browserLang = navigator.language || navigator.userLanguage; // e.g., 'en-US', 'zh-CN'
-                if (browserLang.startsWith('zh')) {
-                    preferredLang = 'zh';
-                }
-                // Otherwise, it defaults to 'en'
-            }
-        } catch (e) {
-            console.warn("Could not access localStorage:", e);
-             // Fallback to browser language check if localStorage fails
-             const browserLang = navigator.language || navigator.userLanguage;
-             if (browserLang.startsWith('zh')) {
-                 preferredLang = 'zh';
-             }
-        }
-
-
-        setLanguage(preferredLang); // Apply the determined language
-    });
-
-</script>
-
-</body>
-</html>
+                if (key === 'promo7Game1Title' ||
