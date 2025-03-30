@@ -269,28 +269,141 @@
             text-align: center;
             box-shadow: 0 -4px 20px var(--shadow-color);
         }
+        
+        /* 响应式设计增强 */
         @media (max-width: 768px) {
             .container {
-                padding: 0; /* 移除小屏幕时的左右内边距 */
+                padding: 0 15px; /* 调整小屏幕边距 */
             }
+            
+            /* Hero 部分优化 */
+            .hero {
+                flex-direction: column;
+                gap: 30px;
+                padding: 40px 20px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                order: 2; /* 在手机视图中调整内容顺序 */
+            }
+            
+            .hero-image {
+                order: 1; /* 图片在手机视图中显示在上方 */
+            }
+            
+            .hero-image img {
+                max-width: 80%; /* 图片在手机上的最大宽度 */
+                height: auto;
+            }
+            
+            h1 {
+                font-size: 36px; /* 减小手机上的标题大小 */
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+            
+            .app-links {
+                justify-content: center; /* 居中显示按钮 */
+                flex-wrap: wrap; /* 允许按钮在必要时换行 */
+            }
+            
+            .app-link {
+                padding: 10px 24px;
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            
+            /* 视频部分优化 */
+            .app-section {
+                padding: 25px 15px;
+                border-radius: 15px;
+            }
+            
+            .app-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
             .video-section {
                 flex-direction: column;
-                gap: 20px; /* 减小小屏幕时的间距 */
+                gap: 20px;
             }
+            
             .video-container {
                 width: 100%;
-                max-width: none; /* 移除最大宽度限制 */
-                height: calc(100vw * (16 / 9)); /* 改为 16:9 比例，适配视频原始比例 */
+                height: auto;
+                aspect-ratio: 9/16; /* 保持竖屏视频比例 */
                 margin-left: 0;
-                margin: 0;
             }
+            
             .promo-container {
                 height: auto;
-                overflow-y: visible;
-                padding: 0 20px; /* 恢复卡片区域的内边距 */
+                max-height: 500px;
+                width: 100%;
             }
+            
             .promo-scroller {
-                animation: none;
+                animation: none; /* 在手机上停止滚动动画 */
+            }
+            
+            /* 导航优化 */
+            .header-content {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            nav a {
+                margin-right: 15px;
+                font-size: 14px;
+            }
+        }
+        
+        /* 针对更小屏幕的额外优化 */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .hero-image img {
+                max-width: 90%;
+            }
+            
+            .app-section {
+                margin-bottom: 30px;
+            }
+            
+            .app-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .promo-card {
+                padding: 15px;
+            }
+            
+            .promo-card h3 {
+                font-size: 20px;
+            }
+            
+            .promo-card h4 {
+                font-size: 16px;
+            }
+            
+            .promo-card p, .promo-card ul li {
+                font-size: 13px;
             }
         }
     </style>
@@ -379,30 +492,29 @@
                             <p>Two bilingual educational games blending fun and learning—compete for global rankings:</p>
                             <ul>
                                 <li><em>Gap Genius (Fill-in-the-Blank Master)</em><br>Five random quotes, a race against time to fill in missing words—dual English and Chinese challenges. Memorize quotes, sharpen expression, and climb the global leaderboard!</li>
-                                <li><em>Word Master (Vocabulary Wizard)</em><br>Three levels: Beginner (e.g., “cat,” “一日三餐”), Intermediate (e.g., “persuade,” “坚持不懈”), Advanced (e.g., “ephemeral,” “罄竹难书”). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
+                                <li><em>Word Master (Vocabulary Wizard)</em><br>Three levels: Beginner (e.g., "cat," "一日三餐"), Intermediate (e.g., "persuade," "坚持不懈"), Advanced (e.g., "ephemeral," "罄竹难书"). Find words fast, aligned with CEFR and HSK standards, and sprint to the Vocabulary Master排行榜!</li>
                             </ul>
                         </div>
 
                         <div class="promo-card">
-                            <h4>Who It’s For</h4>
+                            <h4>Who It's For</h4>
                             <p>Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.</p>
                         </div>
 
                         <div class="promo-card">
                             <h4>Conclusion</h4>
-                            <p>iQuoteX is more than a quote tool—it’s a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
+                            <p>iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-
-<footer>
-    <div class="container">
-        <p>© 2025 Haibo Ni. All rights reserved.</p>
+        </section>
     </div>
-</footer>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Haibo Ni. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
