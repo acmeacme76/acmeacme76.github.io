@@ -292,14 +292,15 @@
             position: absolute;
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 6px 12px; /* 缩小内边距以更贴近按钮 */
+            border-radius: 6px;
             font-size: 14px;
             font-weight: 500;
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 1000;
-            white-space: nowrap; /* 防止文字换行 */
+            white-space: nowrap;
+            pointer-events: none; /* 防止弹窗干扰鼠标事件 */
         }
         .google-play-notice.show {
             opacity: 1;
@@ -630,22 +631,33 @@
             notice.className = 'google-play-notice';
             notice.textContent = 'Coming Soon';
         
-            // Append to the parent of the link (app-links div) instead of body
+            // Append to the parent of the link (app-links div)
             const linkParent = googlePlayLink.parentElement;
             linkParent.appendChild(notice);
         
+            // Ensure linkParent is positioned relatively to allow absolute positioning of notice
+            if (getComputedStyle(linkParent).position === 'static') {
+                linkParent.style.position = 'relative';
+            }
+        
             // Calculate position relative to the Google Play button
             const buttonRect = googlePlayLink.getBoundingClientRect();
+            const parentRect = linkParent.getBoundingClientRect();
             const noticeRect = notice.getBoundingClientRect();
             const offsetX = 10; // Distance from the right edge of the button
         
-            notice.style.left = `${buttonRect.right - linkParent.getBoundingClientRect().left + offsetX}px`;
-            notice.style.top = `${buttonRect.top - linkParent.getBoundingClientRect().top + (buttonRect.height - noticeRect.height) / 2}px`;
+            // Position the notice to the right of the button, vertically centered
+            const leftPosition = buttonRect.right - parentRect.left + offsetX;
+            const topPosition = buttonRect.top - parentRect.top + (buttonRect.height - noticeRect.height) / 2;
+        
+            notice.style.left = `${leftPosition}px`;
+            notice.style.top = `${topPosition}px`;
         
             // Ensure notice doesn't go off-screen
             const windowWidth = window.innerWidth;
             if (buttonRect.right + offsetX + noticeRect.width > windowWidth) {
-                notice.style.left = `${buttonRect.left - linkParent.getBoundingClientRect().left - noticeRect.width - offsetX}px`;
+                // If it overflows on the right, position it to the left of the button
+                notice.style.left = `${buttonRect.left - parentRect.left - noticeRect.width - offsetX}px`;
             }
         
             // Show notice
