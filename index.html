@@ -289,19 +289,17 @@
             margin: 0;
         }
         .google-play-notice {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            position: absolute;
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: 1000;
+            white-space: nowrap; /* 防止文字换行 */
         }
         .google-play-notice.show {
             opacity: 1;
@@ -620,29 +618,46 @@
 
         googlePlayLink.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent default link behavior since it's not available yet
-
+        
             // Remove existing notice if any
             const existingNotice = document.querySelector('.google-play-notice');
             if (existingNotice) {
                 existingNotice.remove();
             }
-
+        
             // Create new notice
             const notice = document.createElement('div');
             notice.className = 'google-play-notice';
             notice.textContent = 'Coming Soon';
-            document.body.appendChild(notice);
-
+        
+            // Append to the parent of the link (app-links div) instead of body
+            const linkParent = googlePlayLink.parentElement;
+            linkParent.appendChild(notice);
+        
+            // Calculate position relative to the Google Play button
+            const buttonRect = googlePlayLink.getBoundingClientRect();
+            const noticeRect = notice.getBoundingClientRect();
+            const offsetX = 10; // Distance from the right edge of the button
+        
+            notice.style.left = `${buttonRect.right - linkParent.getBoundingClientRect().left + offsetX}px`;
+            notice.style.top = `${buttonRect.top - linkParent.getBoundingClientRect().top + (buttonRect.height - noticeRect.height) / 2}px`;
+        
+            // Ensure notice doesn't go off-screen
+            const windowWidth = window.innerWidth;
+            if (buttonRect.right + offsetX + noticeRect.width > windowWidth) {
+                notice.style.left = `${buttonRect.left - linkParent.getBoundingClientRect().left - noticeRect.width - offsetX}px`;
+            }
+        
             // Show notice
             setTimeout(() => {
                 notice.classList.add('show');
             }, 10); // Small delay to trigger transition
-
+        
             // Clear any existing timeout
             if (noticeTimeout) {
                 clearTimeout(noticeTimeout);
             }
-
+        
             // Hide notice after 2 seconds
             noticeTimeout = setTimeout(() => {
                 notice.classList.remove('show');
