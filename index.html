@@ -288,6 +288,24 @@
         #footer-text {
             margin: 0;
         }
+        .google-play-notice {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        .google-play-notice.show {
+            opacity: 1;
+        }
         @media (max-width: 768px) {
             .container { padding: 0 15px; }
             .hero { flex-direction: column; gap: 30px; padding: 40px 20px; text-align: center; }
@@ -594,6 +612,44 @@
         document.getElementById('lang-zh').addEventListener('click', (e) => {
             e.preventDefault();
             setLanguage('zh');
+        });
+
+        // --- Google Play Link Popup ---
+        const googlePlayLink = document.getElementById('link-googleplay');
+        let noticeTimeout;
+
+        googlePlayLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior since it's not available yet
+
+            // Remove existing notice if any
+            const existingNotice = document.querySelector('.google-play-notice');
+            if (existingNotice) {
+                existingNotice.remove();
+            }
+
+            // Create new notice
+            const notice = document.createElement('div');
+            notice.className = 'google-play-notice';
+            notice.textContent = 'Coming Soon';
+            document.body.appendChild(notice);
+
+            // Show notice
+            setTimeout(() => {
+                notice.classList.add('show');
+            }, 10); // Small delay to trigger transition
+
+            // Clear any existing timeout
+            if (noticeTimeout) {
+                clearTimeout(noticeTimeout);
+            }
+
+            // Hide notice after 2 seconds
+            noticeTimeout = setTimeout(() => {
+                notice.classList.remove('show');
+                setTimeout(() => {
+                    notice.remove();
+                }, 300); // Wait for fade-out transition
+            }, 2000);
         });
 
         // --- Initial Language Setup ---
