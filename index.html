@@ -261,8 +261,20 @@
         .promo-card:nth-child(9) { background: var(--card-color-3); }
         .app-links {
             display: flex;
-            gap: 25px;
+            flex-direction: column;
+            gap: 15px;
             margin-top: 25px;
+        }
+        .app-links-row {
+            display: flex;
+            gap: 15px;
+        }
+        .app-links-row a {
+            flex: 1;
+            text-align: center;
+        }
+        .app-links-row:last-child a {
+            width: 100%;
         }
         .app-link {
             padding: 12px 28px;
@@ -339,6 +351,42 @@
             .promo-card p, .promo-card ul li { font-size: 13px; }
             nav { justify-content: center; }
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .modal-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .modal-content a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -362,18 +410,26 @@
                 <h1 id="hero-title">iQuoteX App</h1>
                 <p class="subtitle" id="hero-subtitle">Capture, Learn, Inspire, Wisdom.</p>
                 <div class="app-links">
-                    <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore">App Store</a>
-                    <a href="#" class="app-link" id="link-googleplay">Google Play</a>
+                    <div class="app-links-row">
+                        <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore">App Store</a>
+                        <a href="#" class="app-link" id="link-googleplay">Google Play</a>
+                    </div>
+                    <div class="app-links-row">
+                        <a href="#" class="app-link" id="link-appstore-cn">App Store (中国用户)</a>
+                    </div>
+                    <div class="app-links-row">
+                        <a href="app-release.apk" class="app-link" id="link-direct-download" download="iQuoteX.apk">Direct Download for Android</a>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="/Landscape Banner Ad - 1200x720.png" alt="iQuoteX App Banner">
+                <img src="Landscape_Banner_Ad_1200x720.png" alt="iQuoteX App Banner">
             </div>
-        </section>
+        </section>  
 
         <section class="app-section">
             <div class="app-header">
-                <img src="/iQuoteX_icon.png" alt="App Icon" class="app-icon">
+                <img src="iQuoteX_icon.png" alt="App Icon" class="app-icon">
                 <div>
                     <h2 id="app-name">iQuoteX</h2>
                     <p id="app-subtitle">Your daily companion for wisdom and inspiration</p>
@@ -443,9 +499,21 @@
         </section>
     </div>
 
+    <div id="appstore-cn-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>中国苹果用户说明</h3>
+            <p>由于苹果应用商店的限制，中国用户无法直接下载 iQuoteX 应用。为了方便中国用户，我们提供了以下测试通道：</p>
+            <p>1. 请发送邮件至 <a href="mailto:iquoteacme@gmail.com">iquoteacme@gmail.com</a></p>
+            <p>2. 在邮件中说明您希望加入 iQuoteX 的测试计划</p>
+            <p>3. 我们会尽快回复并提供测试版应用的下载链接</p>
+            <p>感谢您的理解和支持！</p>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <p id="footer-text">© 2025 Haibo Ni. All rights reserved.</p>
+            <p id="footer-text"> 2025 Haibo Ni. All rights reserved.</p>
         </div>
     </footer>
 
@@ -458,7 +526,9 @@
                 heroTitle: "iQuoteX App",
                 heroSubtitle: "Capture, Learn, Inspire, Wisdom.",
                 linkAppstore: "App Store",
+                linkAppstoreCn: "App Store (China Users)",
                 linkGoogleplay: "Google Play",
+                linkDirectDownload: "Direct Download for Android",
                 appName: "iQuoteX",
                 appSubtitle: "Your daily companion for wisdom and inspiration",
                 promo1Title: "iQuoteX - A Quote Sharing and Management App",
@@ -483,7 +553,7 @@
                 promo8Text: "Students, writers, speakers, or anyone who cherishes words and strives to master language skills. Draw wisdom, hone vocabulary, and let iQuoteX be your ultimate companion.",
                 promo9Title: "Conclusion",
                 promo9Text: "iQuoteX is more than a quote tool—it's a stage for inspiration and growth. Download and subscribe now for an ad-free experience, compete with players worldwide, and ignite your spark of wisdom!",
-                footerText: "© 2025 Haibo Ni. All rights reserved.",
+                footerText: " 2025 Haibo Ni. All rights reserved.",
                 youtubeNotice: "Video content is unavailable in your region."
             },
             zh: {
@@ -492,7 +562,9 @@
                 heroTitle: "iQuoteX 应用",
                 heroSubtitle: "品悟、学习、启发、智慧。",
                 linkAppstore: "App Store",
+                linkAppstoreCn: "App Store (中国用户)",
                 linkGoogleplay: "Google Play",
+                linkDirectDownload: "直接下载 Android 版",
                 appName: "iQuoteX",
                 appSubtitle: "您的日常智慧与灵感伴侣",
                 promo1Title: "iQuoteX - 语录分享与管理应用",
@@ -517,7 +589,7 @@
                 promo8Text: "无论您是学生、作家、演讲者，还是任何珍视文字、渴望提升语言能力的人。汲取智慧，锤炼词汇，让iQuoteX成为您的得力助手。",
                 promo9Title: "结语",
                 promo9Text: "iQuoteX，不只是语录工具，更是灵感迸发、学习成长的舞台。立即下载订阅，享受无广告体验，与全球玩家竞技，点亮您的智慧火花！",
-                footerText: "© 2025 倪海波. 版权所有.",
+                footerText: " 2025 倪海波. 版权所有.",
                 youtubeNotice: "视频内容在您所在地区无法访问。"
             }
         };
@@ -679,6 +751,25 @@
             }, 2000);
         });
 
+        // --- Modal Functionality ---
+        const modal = document.getElementById('appstore-cn-modal');
+        const btn = document.getElementById('link-appstore-cn');
+        const span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
         // --- Initial Language Setup ---
         document.addEventListener('DOMContentLoaded', () => {
             let preferredLang = 'en';
@@ -702,6 +793,11 @@
             }
 
             setLanguage(preferredLang);
+
+            document.getElementById('link-appstore').textContent = translations[preferredLang].linkAppstore;
+            document.getElementById('link-appstore-cn').textContent = translations[preferredLang].linkAppstoreCn;
+            document.getElementById('link-googleplay').textContent = translations[preferredLang].linkGoogleplay;
+            document.getElementById('link-direct-download').textContent = translations[preferredLang].linkDirectDownload;
 
             checkYouTubeAccessibility((isAccessible) => {
                 adjustLayout(isAccessible);
