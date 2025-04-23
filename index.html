@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haibo Ni - App Developer</title> 
+    <meta name="description" content="iQuoteX - 双语名言语录收集应用，集成AI翻译和语音朗读功能。提供CEFR标准英语和HSK汉语词汇练习，支持中英文切换，每日名言推送，互动学习游戏等功能。Your bilingual quote collection app with AI translation and voice reading.">
+    <meta name="keywords" content="iQuoteX应用, 双语名言语录收集应用, 英文中文语录翻译工具, 背诵名言的互动学习应用, CEFR标准英语学习应用, HSK汉语词汇练习工具, AI语音朗读名言名句应用, 外语学习填空游戏应用, 个人语录收藏管理应用, 每日英文名言推送应用, 中英文切换语录应用, 语录应用, 名言收集, 英语学习工具, 中文学习应用, 双语应用, AI翻译语录, 语言游戏应用, 词汇练习工具, 名人名言, bilingual quotes app, language learning, quote collection, AI translation">
+    <meta name="author" content="Haibo Ni">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="iQuoteX - 双语名言语录收集与学习应用 | Bilingual Quote Collection & Learning App">
+    <meta property="og:description" content="集成AI翻译和语音朗读的双语名言语录应用，提供CEFR英语和HSK汉语词汇练习。Bilingual quote app with AI translation and voice reading, featuring CEFR English and HSK Chinese vocabulary practice.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acmeacme76.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="iQuoteX - 双语名言语录收集与学习应用 | Bilingual Quote Collection & Learning App">
+    <meta name="twitter:description" content="集成AI翻译和语音朗读的双语名言语录应用，提供CEFR英语和HSK汉语词汇练习。Bilingual quote app with AI translation and voice reading, featuring CEFR English and HSK Chinese vocabulary practice.">
+    <link rel="canonical" href="https://acmeacme76.github.io">
+    <title>iQuoteX - 双语名言语录收集与学习应用 | Bilingual Quote Collection & Learning App</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -492,134 +504,140 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="container header-content">
-            <div class="logo">Haibo Ni - App Developer</div>
-            <nav>
-                <div class="theme-switch" id="theme-switch">
+            <div class="logo" role="heading" aria-level="1">Haibo Ni - App Developer</div>
+            <nav role="navigation" aria-label="Main navigation">
+                <div class="theme-switch" id="theme-switch" role="switch" aria-checked="false">
                     <i class="fas fa-moon"></i>
                     <span>Dark</span>
                 </div>
-                <a href="https://www.linkedin.com/in/haibo-ni-55669820/" target="_blank" id="nav-linkedin">LinkedIn</a>
-                <div class="lang-switch">
-                    <a href="#" id="lang-en">English</a>
-                    <span class="lang-separator">|</span>
-                    <a href="#" id="lang-zh">中文</a>
+                <a href="https://www.linkedin.com/in/haibo-ni-55669820/" target="_blank" id="nav-linkedin" rel="noopener noreferrer" aria-label="Visit LinkedIn Profile">
+                    LinkedIn
+                </a>
+                <div class="lang-switch" role="group" aria-label="Language selection">
+                    <a href="#" id="lang-en" class="active" aria-pressed="true" lang="en">English</a>
+                    <span class="lang-separator" aria-hidden="true">|</span>
+                    <a href="#" id="lang-zh" aria-pressed="false" lang="zh">中文</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1 id="hero-title">iQuoteX App</h1>
-                <p class="subtitle" id="hero-subtitle">Capture, Learn, Inspire, Wisdom.</p>
-                <div class="app-links">
-                    <div class="app-links-row">
-                        <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore">App Store</a>
-                        <a href="#" class="app-link" id="link-googleplay">Google Play</a>
-                    </div>
-                    <div class="app-links-row">
-                        <a href="#" class="app-link" id="link-appstore-cn">App Store (中国用户)</a>
-                    </div>
-                    <div class="app-links-row">
-                        <a href="app-release.apk" class="app-link" id="link-direct-download" download="iQuoteX.apk">Direct Download for Android</a>
+    <main role="main">
+        <div class="container">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-content">
+                    <h1 id="hero-title">iQuoteX App</h1>
+                    <p class="subtitle" id="hero-subtitle">Capture, Learn, Inspire, Wisdom.</p>
+                    <div class="app-links">
+                        <div class="app-links-row">
+                            <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore" rel="noopener noreferrer" aria-label="Download on App Store">App Store</a>
+                            <a href="#" class="app-link" id="link-googleplay" aria-label="Download on Google Play">Google Play</a>
+                        </div>
+                        <div class="app-links-row">
+                            <a href="#" class="app-link" id="link-appstore-cn" aria-label="App Store (China Users)">App Store (中国用户)</a>
+                        </div>
+                        <div class="app-links-row">
+                            <a href="app-release.apk" class="app-link" id="link-direct-download" download="iQuoteX.apk" aria-label="Direct Download for Android">Direct Download for Android</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="Landscape_Banner_Ad_1200x720.png" alt="iQuoteX App Banner">
-            </div>
-        </section>  
+                <div class="hero-image" aria-hidden="true">
+                    <img src="Landscape_Banner_Ad_1200x720.png" alt="iQuoteX App Banner" width="340" height="680" loading="lazy">
+                </div>
+            </section>  
 
-        <section class="app-section">
-            <div class="app-header">
-                <img src="iQuoteX_icon.png" alt="App Icon" class="app-icon">
-                <div>
-                    <h2 id="app-name">iQuoteX</h2>
-                    <p id="app-subtitle">Your daily companion for wisdom and inspiration</p>
+            <section class="app-section" aria-labelledby="app-name">
+                <div class="app-header">
+                    <img src="iQuoteX_icon.png" alt="App Icon" class="app-icon">
+                    <div>
+                        <h2 id="app-name">iQuoteX</h2>
+                        <p id="app-subtitle">Your daily companion for wisdom and inspiration</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="video-section">
-                <div class="video-container">
-                    <iframe 
-                        width="366" 
-                        height="793" 
-                        src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="promo-container">
-                    <div class="promo-scroller">
-                        <div class="promo-card">
-                            <h3 id="promo1-title"></h3>
-                            <p id="promo1-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo2-title"></h4>
-                            <p id="promo2-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo3-title"></h4>
-                            <p id="promo3-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo4-title"></h4>
-                            <p id="promo4-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo5-title"></h4>
-                            <p id="promo5-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo6-title"></h4>
-                            <p id="promo6-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo7-title"></h4>
-                            <p id="promo7-text1"></p>
-                            <ul>
-                                <li id="promo7-game1-title"></li>
+                <div class="video-section">
+                    <div class="video-container">
+                        <iframe 
+                            width="366" 
+                            height="793" 
+                            src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="promo-container">
+                        <div class="promo-scroller">
+                            <div class="promo-card">
+                                <h3 id="promo1-title"></h3>
+                                <p id="promo1-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo2-title"></h4>
+                                <p id="promo2-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo3-title"></h4>
+                                <p id="promo3-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo4-title"></h4>
+                                <p id="promo4-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo5-title"></h4>
+                                <p id="promo5-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo6-title"></h4>
+                                <p id="promo6-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo7-title"></h4>
+                                <p id="promo7-text1"></p>
                                 <ul>
-                                    <li id="promo7-game1-desc"></li>
+                                    <li id="promo7-game1-title"></li>
+                                    <ul>
+                                        <li id="promo7-game1-desc"></li>
+                                    </ul>
+                                    <li id="promo7-game2-title"></li>
+                                    <ul>
+                                        <li id="promo7-game2-desc"></li>
+                                    </ul>
                                 </ul>
-                                <li id="promo7-game2-title"></li>
-                                <ul>
-                                    <li id="promo7-game2-desc"></li>
-                                </ul>
-                            </ul>
-                            <p id="promo7-game2-comment"></p>
-                            <p id="promo7-game2-comment2"></p>
-                        </div>
-                        
-                        <div class="promo-card">
-                            <h4 id="promo8-title"></h4>
-                            <p id="promo8-text"></p>
-                        </div>
-                        <div class="promo-card">
-                            <h4 id="promo9-title"></h4>
-                            <p id="promo9-text"></p>
+                                <p id="promo7-game2-comment"></p>
+                                <p id="promo7-game2-comment2"></p>
+                            </div>
+                            
+                            <div class="promo-card">
+                                <h4 id="promo8-title"></h4>
+                                <p id="promo8-text"></p>
+                            </div>
+                            <div class="promo-card">
+                                <h4 id="promo9-title"></h4>
+                                <p id="promo9-text"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
+    </main>
 
-    <div id="appstore-cn-modal" class="modal">
+    <div id="appstore-cn-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" hidden>
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>中国苹果用户说明</h3>
+            <button class="close" aria-label="Close dialog">&times;</button>
+            <h3 id="modal-title">中国苹果用户说明</h3>
             <p>由于苹果应用商店的限制，中国用户无法直接下载 iQuoteX 应用。为了方便中国用户，我们提供了以下测试通道：</p>
-            <p>1. 请发送邮件至 <a href="mailto:iquoteacme@gmail.com">iquoteacme@gmail.com</a></p>
-            <p>2. 在邮件中说明您希望加入 iQuoteX 的测试计划</p>
-            <p>3. 我们会尽快回复并提供测试版应用的下载链接</p>
+            <ol role="list">
+                <li role="listitem">1. 请发送邮件至 <a href="mailto:iquoteacme@gmail.com">iquoteacme@gmail.com</a></li>
+                <li role="listitem">2. 在邮件中说明您希望加入 iQuoteX 的测试计划</li>
+                <li role="listitem">3. 我们会尽快回复并提供测试版应用的下载链接</li>
+            </ol>
             <p>感谢您的理解和支持！</p>
         </div>
     </div>
@@ -641,7 +659,7 @@
                 linkAppstore: "App Store",
                 linkAppstoreCn: "App Store (China Users)",
                 linkGoogleplay: "Google Play",
-                linkDirectDownload: "Direct Download for Android (1.3.1)",
+                linkDirectDownload: "Direct Download for Android (1.3.3)",
                 appName: "iQuoteX",
                 appSubtitle: "Your daily companion for wisdom and inspiration",
                 promo1Title: "iQuoteX - A Quote Sharing and Management App",
@@ -679,7 +697,7 @@
                 linkAppstore: "App Store",
                 linkAppstoreCn: "App Store (中国用户)",
                 linkGoogleplay: "Google Play",
-                linkDirectDownload: "直接下载 Android 版 1.3.1",
+                linkDirectDownload: "直接下载 Android 版 1.3.3",
                 appName: "iQuoteX",
                 appSubtitle: "您的日常智慧与灵感伴侣",
                 promo1Title: "iQuoteX - 语录分享与管理应用",

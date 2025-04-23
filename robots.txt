@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /assets/
+Allow: /images/
+
+Sitemap: https://acmeacme76.github.io/sitemap.xml
+
+# Disallow potentially sensitive files
+Disallow: /*.json$
+Disallow: /*.txt$
+Disallow: /*.md$
+Disallow: /README.md
+Disallow: /.git/
