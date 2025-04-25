@@ -533,13 +533,13 @@
                     <div class="app-links">
                         <div class="app-links-row">
                             <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore" rel="noopener noreferrer" aria-label="Download on App Store">App Store</a>
-                            <a href="#" class="app-link" id="link-googleplay" aria-label="Download on Google Play">Google Play</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.acmeacme.iquote" class="app-link" id="link-googleplay" aria-label="Download on Google Play">Google Play</a>
                         </div>
                         <div class="app-links-row">
                             <a href="#" class="app-link" id="link-appstore-cn" aria-label="App Store (China Users)">App Store (中国用户)</a>
                         </div>
                         <div class="app-links-row">
-                            <a href="https://pan.baidu.com/s/1pYDhKn8NmXxuJdbjApLSQA?pwd=16gi" class="app-link" id="link-direct-download" download="iQuoteX.apk" aria-label="Direct Download for Android">Direct Download for Android</a>
+                            <a href="https://oracle.acmeacme.net/download/app-release.apk" class="app-link" id="link-direct-download" download="iQuoteX.apk" aria-label="Direct Download for Android">Direct Download for Android</a>
                         </div>
                     </div>
                 </div>
@@ -644,7 +644,7 @@
 
     <footer>
         <div class="container">
-            <p id="footer-text"> 2025 Haibo Ni. All rights reserved.</p>
+            <p id="footer-text"> 2025 Haibo. All rights reserved.</p>
         </div>
     </footer>
 
@@ -690,7 +690,7 @@
                 youtubeNotice: "Video content is unavailable in your region."
             },
             zh: {
-                pageTitle: "倪海波 - App开发者",
+                pageTitle: "Haibo Ni - App开发者",
                 navLinkedin: "领英",
                 heroTitle: "iQuoteX 应用",
                 heroSubtitle: "品悟、学习、启发、智慧。",
@@ -724,7 +724,7 @@
                 promo8Text: "无论您是学生、作家、演讲者，还是任何珍视文字、渴望提升语言能力的人。汲取智慧，锤炼词汇，让iQuoteX成为您的得力助手。",
                 promo9Title: "结语",
                 promo9Text: "iQuoteX，不只是语录工具，更是灵感迸发、学习成长的舞台。立即下载订阅，享受无广告体验，与全球玩家竞技，点亮您的智慧火花！",
-                footerText: " 2025 倪海波. 版权所有.",
+                footerText: " 2025 Haibo. 版权所有.",
                 youtubeNotice: "视频内容在您所在地区无法访问。"
             }
         };
@@ -818,72 +818,6 @@
         document.getElementById('lang-zh').addEventListener('click', (e) => {
             e.preventDefault();
             setLanguage('zh');
-        });
-
-        // --- Google Play Link Popup ---
-        const googlePlayLink = document.getElementById('link-googleplay');
-        let noticeTimeout;
-
-        googlePlayLink.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default link behavior since it's not available yet
-        
-            // Remove existing notice if any
-            const existingNotice = document.querySelector('.google-play-notice');
-            if (existingNotice) {
-                existingNotice.remove();
-            }
-        
-            // Create new notice
-            const notice = document.createElement('div');
-            notice.className = 'google-play-notice';
-            notice.textContent = 'Coming Soon';
-        
-            // Append to the parent of the link (app-links div)
-            const linkParent = googlePlayLink.parentElement;
-            linkParent.appendChild(notice);
-        
-            // Ensure linkParent is positioned relatively to allow absolute positioning of notice
-            if (getComputedStyle(linkParent).position === 'static') {
-                linkParent.style.position = 'relative';
-            }
-        
-            // Calculate position relative to the Google Play button
-            const buttonRect = googlePlayLink.getBoundingClientRect();
-            const parentRect = linkParent.getBoundingClientRect();
-            const noticeRect = notice.getBoundingClientRect();
-            const offsetX = 10; // Distance from the right edge of the button
-        
-            // Position the notice to the right of the button, vertically centered
-            const leftPosition = buttonRect.right - parentRect.left + offsetX;
-            const topPosition = buttonRect.top - parentRect.top + (buttonRect.height - noticeRect.height) / 2;
-        
-            notice.style.left = `${leftPosition}px`;
-            notice.style.top = `${topPosition}px`;
-        
-            // Ensure notice doesn't go off-screen
-            const windowWidth = window.innerWidth;
-            if (buttonRect.right + offsetX + noticeRect.width > windowWidth) {
-                // If it overflows on the right, position it to the left of the button
-                notice.style.left = `${buttonRect.left - parentRect.left - noticeRect.width - offsetX}px`;
-            }
-        
-            // Show notice
-            setTimeout(() => {
-                notice.classList.add('show');
-            }, 10); // Small delay to trigger transition
-        
-            // Clear any existing timeout
-            if (noticeTimeout) {
-                clearTimeout(noticeTimeout);
-            }
-        
-            // Hide notice after 2 seconds
-            noticeTimeout = setTimeout(() => {
-                notice.classList.remove('show');
-                setTimeout(() => {
-                    notice.remove();
-                }, 300); // Wait for fade-out transition
-            }, 2000);
         });
 
         // --- Modal Functionality ---
