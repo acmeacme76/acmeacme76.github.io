@@ -532,7 +532,7 @@
                     <p class="subtitle" id="hero-subtitle">Capture, Learn, Inspire, Wisdom.</p>
                     <div class="app-links">
                         <div class="app-links-row">
-                            <a href="https://apps.apple.com/us/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore" rel="noopener noreferrer" aria-label="Download on App Store">App Store</a>
+                            <a href="https://apps.apple.com/app/iquotex/id6742444842" class="app-link" target="_blank" id="link-appstore" rel="noopener noreferrer" aria-label="Download on App Store">App Store</a>
                             <a href="https://play.google.com/store/apps/details?id=com.acmeacme.iquote" class="app-link" id="link-googleplay" aria-label="Download on Google Play">Google Play</a>
                         </div>
                         <div class="app-links-row">
@@ -560,9 +560,10 @@
                 <div class="video-section">
                     <div class="video-container">
                         <iframe 
+                            id="youtube-player"
                             width="366" 
                             height="793" 
-                            src="https://www.youtube.com/embed/IJn4OqwUTTo?rel=0&autoplay=0&hd=1&vq=hd1080" 
+                            src="https://www.youtube.com/embed/IJn4OqwUTTo?enablejsapi=1&rel=0&autoplay=0&hd=1&vq=hd1080" 
                             title="YouTube video player" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -936,5 +937,33 @@
             });
         });
     </script>
+<script>
+  // 加载 YouTube IFrame Player API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  var firstVideo = "IJn4OqwUTTo";
+  var secondVideo = "oMAhl3O04Bs";
+  var hasSwitched = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerStateChange(event) {
+    // 0 表示播放结束
+    if (event.data === YT.PlayerState.ENDED && !hasSwitched) {
+      hasSwitched = true;
+      player.loadVideoById(secondVideo);
+    }
+  }
+</script>
 </body>
 </html>
