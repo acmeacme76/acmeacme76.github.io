@@ -200,7 +200,7 @@
             background-clip: text;
             color: transparent;
         }
-        .subtitle {
+        .subtitle, #hero-subtitle, #app-subtitle {
             font-size: 20px;
             color: #666;
             margin-bottom: 35px;
@@ -225,8 +225,18 @@
             border-radius: 25px;
             box-shadow: 0 5px 15px var(--shadow-color);
         }
-        #app-subtitle { 
+        #app-subtitle, #hero-subtitle {
             margin: 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            .subtitle, #hero-subtitle, #app-subtitle {
+                color: #ccc;
+            }
+        }
+        :root[data-theme="dark"] .subtitle,
+        :root[data-theme="dark"] #hero-subtitle,
+        :root[data-theme="dark"] #app-subtitle {
+            color: #ccc;
         }
         .video-section {
             display: flex;
