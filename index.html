@@ -22,7 +22,7 @@
     <style>
         :root {
             --primary-color: #007aff;
-            --background-color: #f8f9fd;
+            --background-color: #F1E9E0;
             --text-color: #2d2d2d;
             --shadow-color: rgba(0, 0, 0, 0.08);
             --accent-color: #ff6b6b;
@@ -32,12 +32,12 @@
             --card-color-4: #4AB8FF;
             --card-color-5: #FFD93D;
             --card-color-6: #6BCB77;
-            --panel-background: #ffffff;
+            --panel-background: #F1E9E0;
             --panel-text: #2d2d2d;
         }
         :root[data-theme="dark"] {
             --primary-color: #4CAF50;
-            --background-color: #121212;
+            --background-color: #34568A;
             --text-color: #ffffff;
             --shadow-color: rgba(255, 255, 255, 0.08);
             --accent-color: #ff6b6b;
@@ -47,7 +47,7 @@
             --card-color-4: #4AB8FF;
             --card-color-5: #FFD93D;
             --card-color-6: #6BCB77;
-            --panel-background: #1e1e1e;
+            --panel-background: #34568A;
             --panel-text: #ffffff;
         }
         * {
@@ -55,27 +55,28 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+        body, html {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            background: var(--background-color);
             color: var(--text-color);
-            background: linear-gradient(to bottom, var(--background-color), var(--background-color));
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+        
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
-            background: var(--panel-background);
+            padding: 0 60px;
+            background: transparent;
         }
         header {
             background: var(--panel-background);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px var(--shadow-color);
             padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px var(--shadow-color);
         }
         .header-content {
             display: flex;
@@ -163,7 +164,7 @@
             display: flex;
             align-items: center;
             gap: 60px;
-            padding: 100px 0;
+            padding: 100px 60px;
             background: var(--panel-background);
             box-shadow: 0 4px 20px var(--shadow-color);
         }
@@ -175,11 +176,16 @@
             text-align: center;
         }
         .hero-image img {
-            max-width: 340px;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
             border-radius: 25px;
             box-shadow: 0 15px 40px var(--shadow-color);
             transform: translateY(0);
             transition: transform 0.3s ease;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
         }
         .hero-image img:hover {
             transform: translateY(-10px);
@@ -202,14 +208,10 @@
         }
         .app-section {
             background: var(--panel-background);
-            border-radius: 20px;
-            padding: 50px;
-            margin-bottom: 50px;
-            box-shadow: 0 15px 40px var(--shadow-color);
-            transition: transform 0.3s ease;
-        }
-        .app-section:hover {
-            transform: translateY(-5px);
+            border-radius: 30px;
+            box-shadow: 0 2px 12px var(--shadow-color);
+            margin-bottom: 40px;
+            padding: 40px 30px;
         }
         .app-header {
             display: flex;
@@ -374,9 +376,10 @@
         }
         footer {
             background: var(--panel-background);
-            padding: 25px 0;
+            color: #888;
             text-align: center;
-            box-shadow: 0 -4px 20px var(--shadow-color);
+            padding: 25px 0 15px 0;
+            font-size: 15px;
         }
         footer p {
             color: var(--text-color);
@@ -468,11 +471,11 @@
             opacity: 1;
         }
         @media (max-width: 768px) {
-            .container { padding: 0 15px; }
-            .hero { flex-direction: column; gap: 30px; padding: 40px 20px; text-align: center; }
+            .container { padding: 0 10px; }
+            .hero { flex-direction: column; gap: 30px; padding: 40px 10px; text-align: center; }
             .hero-content { order: 2; }
             .hero-image { order: 1; }
-            .hero-image img { max-width: 80%; height: auto; }
+            .hero-image img, .hero-img { width: 100%; height: auto; max-width: 100%; object-fit: contain; display: block; margin: 0 auto; }
             h1 { font-size: 36px; margin-bottom: 15px; }
             .subtitle { font-size: 16px; margin-bottom: 25px; }
             .app-links { justify-content: center; flex-wrap: wrap; }
@@ -492,7 +495,7 @@
         @media (max-width: 480px) {
             .hero { padding: 30px 15px; }
             h1 { font-size: 28px; }
-            .hero-image img { max-width: 90%; }
+            /* 已统一到上方样式，无需重复 */
             .app-section { margin-bottom: 30px; }
             .app-icon { width: 70px; height: 70px; }
             .promo-card { padding: 15px; }
@@ -544,7 +547,7 @@
                     </div>
                 </div>
                 <div class="hero-image" aria-hidden="true">
-                    <img src="Landscape_Banner_Ad_1200x720.png" alt="iQuoteX App Banner" width="340" height="680" loading="lazy">
+                    <img src="NewSlogon.png" alt="iQuoteX App Banner" class="hero-img" loading="lazy">
                 </div>
             </section>  
 
